@@ -1,53 +1,32 @@
 import streamlit as st
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+from PIL import Image
 
+# Judul
+st.title("Analisis Data dengan Streamlit")
 
-# Load data
-@st.cache
-def load_data():
-    return pd.read_csv("data.csv")
+# Pertanyaan 1
+st.header("Pertanyaan 1")
+st.write("Ini adalah pertanyaan pertama.")
 
+# Gambar 1
+st.subheader("Gambar 1")
+image1 = Image.open("gambar1.png")
+st.image(image1, caption="Deskripsi Gambar 1", use_column_width=True)
 
-data = load_data()
+# Pertanyaan 2
+st.header("Pertanyaan 2")
+st.write("Ini adalah pertanyaan kedua.")
 
-# Main title
-st.title("Bike Sharing Analysis Dashboard")
+# Gambar 2
+st.subheader("Gambar 2")
+image2 = Image.open("gambar2.png")
+st.image(image2, caption="Deskripsi Gambar 2", use_column_width=True)
 
-# Sidebar
-st.sidebar.title("Options")
-selected_option = st.sidebar.selectbox(
-    "Select Option", ["Overview", "Season Analysis", "Weather Analysis"]
-)
+# Pertanyaan 3
+st.header("Pertanyaan 3")
+st.write("Ini adalah pertanyaan ketiga.")
 
-# Overview page
-if selected_option == "Overview":
-    st.header("Overview Page")
-    st.write("This is the overview page.")
-
-# Season analysis page
-elif selected_option == "Season Analysis":
-    st.header("Season Analysis Page")
-    st.write("This is the season analysis page.")
-    # Bar plot of bike rental count by season
-    plt.figure(figsize=(8, 6))
-    sns.barplot(x="season", y="cnt", data=data, estimator="mean")
-    plt.title("Average Bike Rental Count by Season")
-    plt.xlabel("Season")
-    plt.ylabel("Average Bike Rental Count")
-    plt.xticks([0, 1, 2, 3], ["Spring", "Summer", "Fall", "Winter"])
-    st.pyplot()
-
-# Weather analysis page
-elif selected_option == "Weather Analysis":
-    st.header("Weather Analysis Page")
-    st.write("This is the weather analysis page.")
-    # Bar plot of bike rental count by weather condition
-    plt.figure(figsize=(8, 6))
-    sns.barplot(x="weathersit", y="cnt", data=data, estimator="mean")
-    plt.title("Average Bike Rental Count by Weather Condition")
-    plt.xlabel("Weather Condition")
-    plt.ylabel("Average Bike Rental Count")
-    plt.xticks([0, 1, 2, 3], ["Clear", "Mist", "Light Snow/Rain", "Heavy Rain/Snow"])
-    st.pyplot()
+# Gambar 3
+st.subheader("Gambar 3")
+image3 = Image.open("gambar3.png")
+st.image(image3, caption="Deskripsi Gambar 3", use_column_width=True)
